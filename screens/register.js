@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    Button,
-    TouchableHighlight,
-    Image,
-    Alert
-  } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Image, Alert } from 'react-native';
+
+import firebase from 'firebase';
+
+import config from '../Constants/firebase-config';
+
 
 export default class RegisterPage extends Component {
     constructor(props) {
