@@ -27,7 +27,7 @@ export default class LoginPage extends Component {
         return (
           <View style={styles.container}>
             <View style={styles.logocontainer}>
-            <Image style={{width:'90%',height:100}} source={require('../images/logo.jpg')} />
+            <Image style={styles.logo} source={require('../images/logo.jpg')} />
                 
             </View>
             <View style={styles.loginTitle}>
@@ -83,6 +83,12 @@ export default class LoginPage extends Component {
         alignItems: 'center',
         backgroundColor: '#fff',
         width:'100%',
+      },
+      logo:{
+        width:'90%',
+        height:120 ,
+        marginTop:10,
+        marginBottom:10,
       },
       loginTitle:{
         width:'100%',
