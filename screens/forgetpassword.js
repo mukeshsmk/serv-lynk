@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Image, Alert } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    Button,
+    TouchableHighlight,
+    Image,
+    Alert
+  } from 'react-native';
 
-import firebase from 'firebase';
-
-import config from '../Constants/firebase-config';
-
-
-export default class RegisterPage extends Component {
+export default class ForgetPasswordPage extends Component {
     constructor(props) {
         super(props);
         state = {
-          fname :'',
-          lname :'',
           email   : '',
-          password: '',
-          mobile:'',
-
         }
       }
     
@@ -24,65 +23,27 @@ export default class RegisterPage extends Component {
       }
     
       render() {
-              
         return (
           <View style={styles.container}>
             <View style={styles.logocontainer}>
-            <Image  style={styles.logo} source={require('../images/logo.jpg')} />
+            <Image style={styles.logo} source={require('../images/logo.jpg')} />
                 
             </View>
             <View style={styles.loginTitle}>
-                <Text style={styles.loginTitleText}>Let's Create User Account</Text>
+                <Text style={styles.loginTitleText}>User Login</Text>
             </View>
             <View style={styles.loginContainer}>
-            
                 <View style={styles.inputContainer}>
-                <TextInput placeholderTextColor="#a19797"
-                    style={styles.inputs}
-                    placeholder="First Name"
-                    keyboardType="default"
-                    underlineColorAndroid='transparent'
-                    onChangeText={(fname) => this.setState({fname})}/>
-                </View>
-
-                <View style={styles.inputContainer}>
-                <TextInput placeholderTextColor="#a19797"
-                    style={styles.inputs}
-                    placeholder="Last Name"
-                    keyboardType="default"
-                    underlineColorAndroid='transparent'
-                    onChangeText={(lname) => this.setState({lname})}/>
-                </View>
-
-                <View style={styles.inputContainer}>
-                <TextInput placeholderTextColor="#a19797" 
-                    style={styles.inputs}
+                <TextInput style={styles.inputs}
+                    placeholderTextColor="#a19797"
                     placeholder="Email"
                     keyboardType="email-address"
                     underlineColorAndroid='transparent'
                     onChangeText={(email) => this.setState({email})}/>
                 </View>
                 
-                <View style={styles.inputContainer}>
-                <TextInput style={styles.inputs}
-                    placeholderTextColor="#a19797"
-                    placeholder="Password"
-                    secureTextEntry={true}
-                    underlineColorAndroid='transparent'
-                    onChangeText={(password) => this.setState({password})}/>
-                </View>
-
-                <View style={styles.inputContainer}>
-                <TextInput style={styles.inputs}
-                    placeholderTextColor="#a19797"
-                    placeholder="Mobile"
-                    keyboardType="phone-pad"
-                    underlineColorAndroid='transparent'
-                    onChangeText={(mobile) => this.setState({mobile})}/>
-                </View>
-        
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('register')}>
-                <Text style={styles.loginText}>Register</Text>
+                <TouchableHighlight style={[styles.buttonContainer, styles.resetButton]} onPress={() => this.onClickListener('reset password')}>
+                <Text style={styles.resetText}>Send Reset Email</Text>
                 </TouchableHighlight>
         
                 <View style={styles.orText}>
@@ -92,7 +53,6 @@ export default class RegisterPage extends Component {
                 <TouchableHighlight style={[styles.buttonContainer, styles.registerButton]} onPress={() => this.onClickListener('login')}>
                 <Text style={styles.loginText}>Login</Text>
                 </TouchableHighlight>
-
             </View>
             </View>
         );
@@ -123,14 +83,13 @@ export default class RegisterPage extends Component {
         color:'#fff',
       },
       loginContainer:{
-        marginTop:'8%',
-        marginBottom:'8%',
+        marginTop:'15%',
+        marginBottom:'15%',
       },
       logo:{
         width:'90%',
         height:120 ,
-        marginTop:10,
-        marginBottom:10,
+        marginTop:50,
       },
       inputContainer: {
           borderBottomColor: '#F5FCFF',
@@ -139,8 +98,8 @@ export default class RegisterPage extends Component {
           borderBottomWidth: 1,
           color:'#998e8e',
           width:250,
-          height:35,
-          marginBottom:12,
+          height:40,
+          marginBottom:20,
           flexDirection: 'row',
           alignItems:'center',
       },
@@ -155,6 +114,7 @@ export default class RegisterPage extends Component {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom:10,
         width:250,
         borderRadius:2,
       },
@@ -162,18 +122,21 @@ export default class RegisterPage extends Component {
         alignItems: 'center',
         alignSelf: 'flex-end',
       },
-      loginButton: {
+      resetButton: {
         backgroundColor: "#12a70b",
       },
       orText:{
-        marginTop:'2%',
-        marginBottom:'2%',
+        marginTop:'5%',
+        marginBottom:'5%',
         alignItems: 'center',
       },
       registerButton: {
         backgroundColor: '#0065f3',
       },
-      loginText: {
+      resetText: {
+        color: 'white',
+      },
+      loginText:{
         color: 'white',
       }
     });
