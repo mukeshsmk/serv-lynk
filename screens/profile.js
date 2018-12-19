@@ -14,7 +14,7 @@ import {
     Alert,
   } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import HeaderComponent from '../components/headerComponent';
+import HeaderComponent from '../components/Header';
 
 
 export default class ProfilePage extends Component {
