@@ -129,11 +129,11 @@ export default class RegisterPage extends Component {
                 <Text style={styles.loginText}>Login</Text>
               </TouchableHighlight>
             </View>
-            {this.state.loading &&
-            <Loading />      
-            }
           </ScrollView>
         </KeyboardAvoidingView>
+        {this.state.loading &&
+          <Loading />      
+        }
       </View>
     );
   }

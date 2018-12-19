@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, ActivityIndicator, StyleSheet, Dimensions } from 'react-native'
 
 export default class Loading extends React.Component {
   render() {
@@ -19,8 +19,11 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     opacity: 0.7,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
     backgroundColor: 'black',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    
   }
 })
