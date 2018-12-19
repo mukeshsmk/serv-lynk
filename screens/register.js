@@ -1,30 +1,52 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    Button,
-    TouchableHighlight,
-    Image,
-    Alert
-  } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableHighlight, Image, Alert } from 'react-native';
+import firebase from 'firebase';
 
 export default class RegisterPage extends Component {
-    constructor(props) {
-        super(props);
-        state = {
-          fname :'',
-          lname :'',
-          email   : '',
-          password: '',
-          mobile:'',
-
-        }
+  constructor(props) {
+      super(props);
+      state = {
+        fname :'',
+        lname :'',
+        email   : '',
+        password: '',
+        mobile:'',
       }
-    
-      onClickListener = (viewId) => {
-        Alert.alert("Alert", "Button pressed "+viewId);
+    } 
+  
+    signup(){
+      const { navigate } = this.props.navigation;
+      var email = this.state.email;
+      var fname = this.state.fname;
+      var lname = this.state.lname;
+      var mobile = this.state.mobile;
+      firebase.database().ref('Users/').push({
+        email,
+        fname,
+        lname,
+        mobile
+      }).then((data)=>{
+        //success callback
+        console.log('data ' , data)
+        //Alert.alert("Alert", "Button pressed "+JSON.stringify(data));
+        navigate('drawerNavigation');
+      }).catch((error)=>{
+        //error callback
+        console.log('error ' , error)
+        })
+      }
+      onClickListener() {
+
+      }
+      writeUserData(){
+        
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then( (user) => {
+          console.log(user)
+          this.signup()
+        },(error) => {
+          alert(error.message)
+        })
       }
     
       render() {
@@ -85,7 +107,7 @@ export default class RegisterPage extends Component {
                     onChangeText={(mobile) => this.setState({mobile})}/>
                 </View>
         
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('register')}>
+                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.writeUserData('register')}>
                 <Text style={styles.loginText}>Register</Text>
                 </TouchableHighlight>
         

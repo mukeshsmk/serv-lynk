@@ -30,7 +30,7 @@ export default class ForgetPasswordPage extends Component {
                 
             </View>
             <View style={styles.loginTitle}>
-                <Text style={styles.loginTitleText}>User Login</Text>
+                <Text style={styles.loginTitleText}>Forgot password</Text>
             </View>
             <View style={styles.loginContainer}>
                 <View style={styles.inputContainer}>

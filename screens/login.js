@@ -10,6 +10,8 @@ import {
     Alert
   } from 'react-native';
 
+  import firebase from 'firebase';
+
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +20,21 @@ export default class LoginPage extends Component {
           password: '',
         }
       }
-    
+      login(){
+        const { navigate } = this.props.navigation;
+        firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+          .then( (user) => {
+            
+            navigate('drawerNavigation');
+            console.log(user)
+          },(error) => {
+            
+            alert(error.message)
+          })
+      }
       onClickListener = (viewId) => {
-        Alert.alert("Alert", "Button pressed "+viewId);
+        const { navigate } = this.props.navigation;
+        navigate('Register')
       }
     
       render() {
@@ -52,7 +66,7 @@ export default class LoginPage extends Component {
                     onChangeText={(password) => this.setState({password})}/>
                 </View>
         
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.login('login')}>
                 <Text style={styles.loginText}>Login</Text>
                 </TouchableHighlight>
         
