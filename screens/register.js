@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableHighlight, Image, KeyboardAvoidingView } from 'react-native';
-import firebase from 'firebase';
+import firebase from 'react-native-firebase';
 import Loading from '../components/loading'
 
 export default class RegisterPage extends Component {

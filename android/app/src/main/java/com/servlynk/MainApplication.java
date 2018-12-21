@@ -3,6 +3,11 @@ package com.servlynk;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage; // <-- Add this line
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; // <-- Add this line
+import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
+import io.invertase.firebase.database.RNFirebaseDatabasePackage; // <-- Add this line
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,7 +29,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGestureHandlerPackage()
+            new RNFirebasePackage(),
+            new RNGestureHandlerPackage(),
+            new RNFirebaseNotificationsPackage(), // <-- Add this line
+            new RNFirebaseMessagingPackage(), // <-- Add this line
+            new RNFirebaseAuthPackage(), // <-- Add this line
+            new RNFirebaseDatabasePackage() // <-- Add this line
       );
     }
 
