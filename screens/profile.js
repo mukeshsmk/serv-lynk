@@ -10,10 +10,9 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     Image,
-    Icon,
     Alert,
   } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+  import { Icon } from 'react-native-elements';
 import HeaderComponent from '../components/Header';
 
 
@@ -27,7 +26,7 @@ export default class ProfilePage extends Component {
       render() {
         return (
             
-            <View colors={['#0c131e','#0258d1']} style = { styles.container }>
+            <View>
                <LinearGradient colors={['#0c131e','#0258d1']} style = { styles.container }>
                     <HeaderComponent />
 
@@ -51,16 +50,19 @@ export default class ProfilePage extends Component {
                         <View style={styles.accountInfo}>
                         
                             <TouchableOpacity>
-                                <Text  style={styles.accountText}> Account Information  ></Text>
-
+                                <Text  style={styles.accountText}> Account Information > </Text> 
+                               
                             </TouchableOpacity>
+        
                         </View>
                         <View style={styles.accountInfo}>
                             <TouchableOpacity>
                                 <Text  style={styles.accountText}> Change Password  ></Text>
                             </TouchableOpacity>
                         </View>
-            
+                      
+          
+        
                      </View>
 
                    
@@ -72,6 +74,10 @@ export default class ProfilePage extends Component {
     }
     
     const styles = StyleSheet.create({
+        container:{
+            width:'100%',
+            height:'100%',
+        },
         card: {
         alignItems:'center',
         justifyContent:'center',

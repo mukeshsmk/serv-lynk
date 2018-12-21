@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import firebase from 'firebase';
 
 import Loading from '../components/loading'
@@ -21,7 +21,7 @@ export default class LoginPage extends Component {
   hideLoading() {
     this.setState({loading: false})
   }
-  //Login function using firebase
+  //Login function using firebase 
   login(){
     this.showLoading();
     const { navigate } = this.props.navigation;
@@ -80,11 +80,12 @@ export default class LoginPage extends Component {
                 <Text style={styles.loginText}>Register</Text>
               </TouchableHighlight>
             </View>
-            {this.state.loading &&
-            <Loading />      
-            }
+           
           </ScrollView>
         </KeyboardAvoidingView>
+        {this.state.loading &&
+          <Loading />      
+        }
       </View>
     );
   }
@@ -92,7 +93,7 @@ export default class LoginPage extends Component {
     
 const styles = StyleSheet.create({
   container: {
-    marginTop:50,
+    marginTop:Platform.OS === 'ios'? 50 : 0,
     flex: 1,
     width:'100%',
     backgroundColor: '#DCDCDC',

@@ -11,14 +11,14 @@ class HeaderComponent extends Component {
           <Button
             transparent
             onPress={() => this.props.navigation.openDrawer()}>
-            <Icon name='sort'style={styles.menuIcon} />
+            <Icon name='sort'style={{color: '#fff',fontSize: 18,marginRight:5, transform: [{ rotateY: '180deg'}],}} />
           </Button>
         </Left>
         <Body>
-          <Title style={styles.title}>{this.props.title.toUpperCase()}</Title>
+          <Title style={styles.title}>Profile</Title>
         </Body>
         <Right>
-          <Icon name='tune' />
+          <Icon name='tune'/>
         </Right>
       </Header>  
     );

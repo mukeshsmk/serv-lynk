@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import firebase from 'firebase';
 
 import Loading from '../components/loading';
@@ -68,11 +68,11 @@ export default class ForgetPasswordPage extends Component {
               <Text style={styles.loginText}>Login</Text>
             </TouchableHighlight>
           </View>
-          {this.state.loading &&
-          <Loading />      
-          }
         </ScrollView>
       </KeyboardAvoidingView>
+      {this.state.loading &&
+        <Loading />      
+      }
     </View>
     );
   }
@@ -81,7 +81,7 @@ export default class ForgetPasswordPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    width:'100%',
     backgroundColor: '#DCDCDC',
   },
   logocontainer:{
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     color:'#fff',
   },
   loginContainer:{
+    alignItems: 'center',
     marginTop:'15%',
     marginBottom:'15%',
   },
