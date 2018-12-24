@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, SafeAreaView, TouchableOpacity, Text, Alert, Image, StyleSheet } from 'react-native'
 import { createDrawerNavigator, createAppContainer, DrawerItems } from "react-navigation";
-import firebase from 'firebase'
+import firebase from 'react-native-firebase'
 import { Card, Left, Body, Right, Container, Header } from "native-base";
 
 import Marketplaces from '../screens/marketPlaces';

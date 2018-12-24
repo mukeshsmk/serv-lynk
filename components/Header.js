@@ -11,14 +11,14 @@ class HeaderComponent extends Component {
           <Button
             transparent
             onPress={() => this.props.navigation.openDrawer()}>
-            <Icon name='sort'style={{color: '#fff',fontSize: 18,marginRight:5, transform: [{ rotateY: '180deg'}],}} />
+            <Icon name='sort' iconStyle={styles.menuIcon} />
           </Button>
         </Left>
         <Body>
           <Title style={styles.title}>Profile</Title>
         </Body>
         <Right>
-          <Icon name='tune'/>
+          <Icon name='tune' iconStyle={styles.menuIcon} />
         </Right>
       </Header>  
     );
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   menuIcon:{
     color: '#fff',
-    fontSize: 18,
+    fontSize: 26,
     marginRight:5,
     transform: [{ rotateY: '180deg'}],
   },

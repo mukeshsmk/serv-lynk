@@ -5,6 +5,11 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage; // <-- Add this line
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; // <-- Add this line
+import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
+import io.invertase.firebase.database.RNFirebaseDatabasePackage; // <-- Add this line
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -28,7 +33,12 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseNotificationsPackage(), // <-- Add this line
+            new RNFirebaseMessagingPackage(), // <-- Add this line
+            new RNFirebaseAuthPackage(), // <-- Add this line
+            new RNFirebaseDatabasePackage() // <-- Add this line
       );
     }
 
@@ -47,5 +57,6 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+
   }
 }

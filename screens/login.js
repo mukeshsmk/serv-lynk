@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
-import firebase from 'firebase';
+import firebase from 'react-native-firebase';
 
 import Loading from '../components/loading'
 
