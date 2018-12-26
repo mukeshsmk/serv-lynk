@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {Container, Header, Content, Footer, Title} from 'native-base';
+import Dialog from "react-native-dialog";
 import {
     StyleSheet,
     Text,
@@ -22,10 +23,23 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 var MapView = require('react-native-maps');
 
 export default class OfferedListingPage extends Component {
-    constructor(props) {
-        super(props);
-        
-      }
+      state = {
+        dialogVisible: true
+      };
+    
+      showDialog = () => {
+        this.setState({ dialogVisible: true });
+      };
+    
+      handleCancel = () => {
+        this.setState({ dialogVisible: false });
+      };
+    
+      handleDelete = () => {
+        // The user has pressed the "Delete" button, so here you can do your own logic.
+        // ...Your logic
+        this.setState({ dialogVisible: false });
+      };
      
     
       render() {
@@ -87,12 +101,26 @@ export default class OfferedListingPage extends Component {
                     <TouchableOpacity style={styles.bottomButtons1}>
                         <Text style={styles.footerText}>Contact Provider</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.bottomButtons2}>
+                    <TouchableOpacity style={styles.bottomButtons2} >
                         <Text style={styles.footerText}>Hire Provider</Text>
                     </TouchableOpacity>
                     </View>
                 </View>
                   
+
+                  <View>
+                      <TouchableOpacity onPress={this.showDialog}>
+                        <Text>Show Dialog</Text>
+                      </TouchableOpacity>
+                      <Dialog.Container visible={true}>
+                        <Dialog.Title>Account delete</Dialog.Title>
+                        <Dialog.Description>
+                          Do you want to delete this account? You cannot undo this action.
+                        </Dialog.Description>
+                        <Dialog.Button label="Cancel" onPress={this.handleCancel} />
+                        <Dialog.Button label="Delete" onPress={this.handleDelete} />
+                      </Dialog.Container>
+                    </View>
 
                   {/* <MapView
     initialRegion={region}

@@ -8,7 +8,7 @@ class MyoffersPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent />
+        <HeaderComponent title={ 'My Offers' } navigation={ this.props.navigation }/>
         <ScrollView>
           <View>
             <Grid style={styles.gridBorder}>

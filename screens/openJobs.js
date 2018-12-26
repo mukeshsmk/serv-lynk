@@ -16,7 +16,7 @@ class OpenjobsPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent />
+        <HeaderComponent title={ 'Open Jobs' } navigation={ this.props.navigation }/>
         <ScrollView>
           <View>
           <Grid>

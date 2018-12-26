@@ -7,20 +7,20 @@ class HeaderComponent extends Component {
   render() {
     return (
       <Header style={styles.drawerHeader}>
-        <Left>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.openDrawer()}>
-            <Icon name='sort' iconStyle={styles.menuIcon} />
-          </Button>
-        </Left>
-        <Body>
-          <Title style={styles.title}>Profile</Title>
-        </Body>
-        <Right>
-          <Icon name='tune' iconStyle={styles.menuIcon} />
-        </Right>
-      </Header>  
+      <Left>
+        <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+          <Icon name='sort' iconStyle={styles.menuIcon} />
+        </Button>
+      </Left>
+      <Body>
+        <Title style={styles.title}>{this.props.title}</Title>
+      </Body>
+      <Right>
+        <Icon name='tune' iconStyle={styles.menuIcon} />
+      </Right>
+    </Header> 
     );
   }
 }

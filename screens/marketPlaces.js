@@ -16,7 +16,7 @@ class Marketplaces extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent />
+        <HeaderComponent title={ 'MarketPlaces' } navigation={ this.props.navigation }/>
         <ScrollView>
           <View>
             <Grid style={styles.gridBorder}>

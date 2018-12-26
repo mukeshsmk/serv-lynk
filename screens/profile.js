@@ -28,7 +28,7 @@ export default class ProfilePage extends Component {
             
             <View>
                <LinearGradient colors={['#0c131e','#0258d1']} style = { styles.container }>
-                    <HeaderComponent />
+                <HeaderComponent title={ 'Profile' } navigation={ this.props.navigation }/>
 
                     <View style={styles.card}>
                         <TouchableHighlight

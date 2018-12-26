@@ -16,7 +16,7 @@ class MyGygsPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent />
+        <HeaderComponent title={ 'My Gigs' } navigation={ this.props.navigation }/>
         <ScrollView>
           <Grid style={styles.gridBorder}>
             <Col>

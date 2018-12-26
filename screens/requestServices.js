@@ -9,7 +9,7 @@ class Requestservices extends Component {
     return (
       <View style={styles.container}>
         <Container>
-          <HeaderComponent title={ 'Requestservices' } navigation={ this.props.navigation }/>
+          <HeaderComponent title={ 'Request Service' } navigation={ this.props.navigation }/>
           <Body>
             <KeyboardAvoidingView >
               <ScrollView>
