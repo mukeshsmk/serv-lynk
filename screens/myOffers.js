@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   waitingButton: {
     backgroundColor: '#d6d406',
-    width:'50%',
+    width:'45%',
     height:25,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -93,9 +93,13 @@ const styles = StyleSheet.create({
     fontSize:10,
     color: '#282800'
   },
+  accepted: {
+    fontSize:10,
+    color: '#282800'
+  },
   acceptedButton:{
     backgroundColor: '#35a20f',
-    width:'50%',
+    width:'45%',
     height:25,
     flexDirection: 'row',
     justifyContent: 'center',

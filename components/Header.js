@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  drawerHeader:{
+    backgroundColor:'#015cdb'
+  },
   menuIcon:{
     color: '#fff',
     fontSize: 26,
@@ -39,6 +42,7 @@ const styles = StyleSheet.create({
     transform: [{ rotateY: '180deg'}],
   },
   title:{
-    fontSize:14
+    fontSize:14,
+    marginRight:50,
   }
 });

@@ -1,192 +1,45 @@
 import React, { Component } from "react";
-import { TouchableOpacity } from "react-native";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  KeyboardAvoidingView,
-  ScrollView
-} from "react-native";
-import { Container, Body } from "native-base";
-import { Col, Row, Grid } from "react-native-easy-grid";
-import HeaderComponent from "../components/Header";
+import { 	View,	Text,	StyleSheet, KeyboardAvoidingView, ScrollView } from "react-native";
+import { Container,Body } from "native-base";
+import { Dimensions } from 'react-native';
+import { TabView , SceneMap } from 'react-native-tab-view';
+import HeaderComponent from '../components/Header';
+import MarketPlaceTab from './marketplacetab';
+
+const FirstRoute = () => (
+  <View style={ styles.container }>
+    <MarketPlaceTab />
+  </View>
+);
+const SecondRoute = () => (
+  <View style={ styles.container }>
+     <MarketPlaceTab />
+  </View>
+);
 
 class Marketplaces extends Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'first', title: 'Offered' },
+      { key: 'second', title: 'Request' },
+    ],
+  };
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent title={ 'MarketPlaces' } navigation={ this.props.navigation }/>
-        <ScrollView>
-          <View>
-            <Grid style={styles.gridBorder}>
-              <Col>
-                <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/1.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Cleaning</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Ohio</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-              <Col>
-              <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/2.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Plumbing</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Newyork</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-            </Grid>
-
-
-             <Grid style={styles.gridBorder}>
-              <Col>
-                <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/3.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Cleaning</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>California</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-              <Col>
-              <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/4.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Plumbing</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Florida</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-            </Grid>
-
-
-             <Grid style={styles.gridBorder}>
-              <Col>
-                <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/5.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Cleaning</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Ohio</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-              <Col>
-              <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/1.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Plumbing</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Newyork</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-            </Grid>
-
-             <Grid style={styles.gridBorder}>
-              <Col>
-                <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/2.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Cleaning</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Ohio</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-              <Col>
-              <TouchableOpacity>
-                  <View style={styles.sevices} >
-                    <Image style={styles.seviceImage} source={require('../images/3.jpg')} />
-                    <View style={styles.seviceText}>
-                      <Text style={{color:'#eae3e3fa'}}>Plumbing</Text>
-                    </View>
-                    <Grid style={styles.sevicesRate}>
-                      <Col size={3}>
-                      <Text>Newyork</Text>
-                      </Col>
-                      <Col size={1}>
-                      <Text>$$</Text>
-                      </Col>
-                    </Grid>
-                  </View>
-                 
-                </TouchableOpacity>
-              </Col>
-            </Grid>
-
-          </View>
-        </ScrollView>
+        <Container>
+          <HeaderComponent title={ 'Market Places' } navigation={ this.props.navigation }/>
+          <TabView
+            navigationState={this.state}
+            renderScene={SceneMap({
+              first: FirstRoute,
+              second: SecondRoute,
+            })}
+            onIndexChange={index => this.setState({ index })}
+            initialLayout={{ width: Dimensions.get('window').width }}
+          />
+        </Container>
       </View>
     );
   }
@@ -195,32 +48,7 @@ export default Marketplaces;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  sevices:{
-    margin:15,
-  },
-  seviceImage: {
-    width: 150,
-    height: 150,
-    position: 'relative',
-  },
-  seviceText:{
-    position: 'absolute',
-    backgroundColor: '#70726dba',
-    width: 150,
-     top: 120, 
-     left: 0, 
-     right: 0, 
-     bottom: 0,
-     paddingLeft:10,
-  },
-  sevicesRate:{
-  backgroundColor:'#fff',
-  },
-  gridBorder:{
-    borderBottomColor: '#fbe9d4',
-    borderBottomWidth: 1,
+    flex: 1,
+    
   }
-})
-
+});

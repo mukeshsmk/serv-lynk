@@ -6,18 +6,21 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import firebase from 'react-native-firebase';
-import { NativeModules } from 'react-native';
-//import firebaseApp from './Constants/firebase-config';
-import StackNavigation from './navigation/Appnavigation_partial'
-import DrawerNavigation from './navigation/AppNavigation';
+import { NativeModules } from "react-native";
+// import firebaseApp from './Constants/firebase-config';
+import StackNavigation from "./navigation/Appnavigation_partial";
+import DrawerNavigation from "./navigation/AppNavigation";
 import type { Notification,NotificationOpen } from 'react-native-firebase';
-
+import Provideservices from "./screens/provideServices";
+import OfferedListingPage from "./screens/offeredlisting";
+import ProfilePage from "./screens/profile";
+import Marketplaces from "./screens/marketPlaces";
+import MarketPlaceTab from './screens/marketplacetab'
 
 type Props = {};
 export default class App extends Component<Props> {
-
   componentDidMount() {
     this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification: Notification) => {
         // Process your notification as required
@@ -42,12 +45,8 @@ export default class App extends Component<Props> {
     this.notificationDisplayedListener();
     this.notificationListener();
   }
-  
-  
+
   render() {
-    return (
-        <StackNavigation />
-    );
+    return <StackNavigation />;
   }
 }
-

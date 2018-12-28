@@ -43,12 +43,12 @@ class OpenjobsPage extends Component {
           <Grid style={styles.jobs1}>
             <Col>
               <View>
-                <Text>Job Amount: $75</Text>
+                <Text style={styles.amount}>Job Amount: $75</Text>
               </View>
             </Col>
             <Col>
               <View style={styles.payment}>
-               <Text>Payment Due: $75</Text>
+               <Text style={styles.amount}>Payment Due: $75</Text>
                <TouchableOpacity 
                 style ={styles.payButton}>
                 <Button color='#45474a' title="Pay"/> 
@@ -85,16 +85,21 @@ const styles = StyleSheet.create({
   jobsTittle:{
     fontSize:18,
   },
+  amount:{
+    fontSize:14,
+    color:'#333333',
+  },
   payment:{
     borderLeftColor: '#acadae',
     borderLeftWidth: 1,
-    paddingLeft:10,
+    paddingLeft:20,
     marginBottom: 5,
   },
   payButton:{
     color: 'red',
     marginTop: 5,
     marginBottom: 5,
-    backgroundColor: '#45474a'
+    backgroundColor: '#45474a',
+    width:'75%'
   }
 });
