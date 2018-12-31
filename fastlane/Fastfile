@@ -1,4 +1,5 @@
 fastlane_version "2.112.0"
+generated_fastfile_id "a4ac21cd-f236-4603-97cf-5ae088d5d329"
 
 before_all do
   ensure_git_branch
@@ -47,5 +48,9 @@ platform :android do
   desc "Ship to Playstore Beta."
   lane :beta do
     debug
+    crashlytics(
+      api_token: "7ecb17ebc2b5f95c4b1a62a6c1044c8309320e5d",
+      build_secret: "c18b5deadc6b049572043c20c684433946ff4f9b711aa137b2129692798b4856"
+    )
   end
 end
