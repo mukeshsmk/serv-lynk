@@ -19,6 +19,7 @@
     "react-native-dialog": "^5.5.0",
     "react-native-easy-grid": "^0.2.0",
     "react-native-elements": "^0.19.1",
+    "react-native-fabric": "^0.5.2",
     "react-native-firebase": "^5.1.1",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-ionicons": "^4.5.0",
