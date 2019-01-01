@@ -3,10 +3,9 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start1": "node node_modules/react-native/local-cli/cli.js start",
+    "start-old": "node node_modules/react-native/local-cli/cli.js start",
     "start-ios": "react-native run-ios --config=../../../../rn-cli.config.js",
-    "start-js": "react-native start --config=../../../../rn-cli.config.js",
-    "start": "react-native run-android",
+    "start": "react-native start --config=../../../../rn-cli.config.js",
     "test": "jest",
     "ios:beta": "fastlane ios beta",
     "android:beta": "fastlane android beta"
