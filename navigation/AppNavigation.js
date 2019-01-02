@@ -20,12 +20,13 @@ const CustomDrawerContentComponent = (props) => (
       <Left>
         <Image style={styles.proPic} source={require('../images/logo.jpg')}/>
       </Left>
+      <Right>
       <Body>
       <Text>Test</Text>
       </Body>
-      <Right />
+      </Right>
     </Header>
-    <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+    <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }} style={styles.navItems}>
       <DrawerItems {...props} style={styles.navItems}/>
       <TouchableOpacity onPress={()=>
         Alert.alert(
@@ -102,7 +103,8 @@ const styles = StyleSheet.create({
     marginTop:'2%'    
   },
   navItems:{
-    margin: 10
+    margin: 10,
+    backgroundColor:'red'
   }
 });
 
