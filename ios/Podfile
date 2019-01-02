@@ -1,26 +1,28 @@
 # Uncomment the next line to define a global platform for your project
-  platform :ios, '9.0'
+platform :ios, "9.0"
 
-target 'servLynk' do
+target "servLynk" do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
-
   # Pods for servLynk
-
-  target 'servLynk-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'servLynkTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end
 
+pod "React", :path => "../node_modules/react-native", :subspecs => [
+               "Core",
+               "DevSupport", # Include this to enable In-App Devmenu if RN >= 0.43
+               "RCTText",
+               "RCTNetwork",
+               "RCTWebSocket", # needed for debugging
+               "RCTImage",
+             # Add any other subspecs you want to use in your project
+             ]
 # Required by RNFirebase
-pod 'Firebase/Core'
-pod 'Firebase/Messaging'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
+pod "Firebase/Core"
+pod "Firebase/Messaging"
+pod "Firebase/Auth"
+pod "Firebase/Database"
+
+pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+pod "BVLinearGradient", :path => "../node_modules/react-native-linear-gradient"
+pod "react-native-maps", :path => "../node_modules/react-native-maps"

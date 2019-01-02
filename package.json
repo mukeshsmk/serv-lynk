@@ -1,10 +1,14 @@
 {
   "name": "servLynk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start-old": "node node_modules/react-native/local-cli/cli.js start",
+    "start-ios": "react-native run-ios --config=../../../../rn-cli.config.js",
+    "start": "react-native start --config=../../../../rn-cli.config.js",
+    "test": "jest",
+    "ios:beta": "fastlane ios beta",
+    "android:beta": "fastlane android beta"
   },
   "dependencies": {
     "firebase": "^5.7.0",

@@ -107,6 +107,16 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            if (project.hasProperty('SERVLYNK_RELEASE_STORE_FILE')) {
+                storeFile file(SERVLYNK_RELEASE_STORE_FILE)
+                storePassword SERVLYNK_RELEASE_STORE_PASSWORD
+                keyAlias SERVLYNK_RELEASE_KEY_ALIAS
+                keyPassword SERVLYNK_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
     splits {
         abi {
             reset()
@@ -119,6 +129,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -137,8 +148,12 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-maps')
+    compile project(':react-native-gesture-handler')
+    compile project(':react-native-firebase')
     compile project(':react-native-vector-icons')
     compile project(':react-native-linear-gradient')
+    
     implementation project(':react-native-firebase')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -152,6 +167,7 @@ dependencies {
     implementation 'me.leolin:ShortcutBadger:1.1.21@aar'
     implementation "com.google.firebase:firebase-auth:16.0.5"
     implementation "com.google.firebase:firebase-database:16.0.4"
+    
 }
 
 // Run this once to be able to run the application with BUCK
