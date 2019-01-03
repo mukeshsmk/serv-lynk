@@ -62,23 +62,18 @@ const CustomDrawerContentComponent = props => (
                 {
                   text: "Confirm",
                   onPress: () => {
-                    // Asyncstorage.clear();
-                    firebase
-                      .auth()
-                      .signOut()
-                      .then(function() {
-                        props.navigation.navigate("Login");
-                      })
-                      .catch(function(error) {
-                        alert("// An error happened", error);
-                      });
-                  }
-                }
-              ],
-              { cancelable: false }
-            )
-          }
-        >
+                    firebase.auth().signOut()
+                    .then(function() {
+                      props.navigation.navigate('Login')
+                    })
+                    .catch(function(error) {
+                      alert("// An error happened",error)
+                    });
+                  }},
+                ],
+                { cancelable: false }
+              )  
+              }>
           <View style={styles.navItems}>
             <Text style={[styles.navItemText, { margin: 16 }]}>Logout</Text>
           </View>

@@ -1,63 +1,76 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image,TouchableHighlight, ScrollView,TouchableOpacity,Button} from "react-native";
-import { Col, Row, Grid } from "react-native-easy-grid";
-
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
+import { Container, Body } from "native-base";
+import { Dimensions } from "react-native";
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import HeaderComponent from "../components/Header";
+import MyoffersSentPage from "./myOffersSent";
+import MyoffersReceivePage from './myOffersReceive';
+
+const FirstRoute = () => (
+  <View style={styles.container}>
+    <MyoffersSentPage />
+  </View>
+);
+const SecondRoute = () => (
+  <View style={styles.container}>
+    <MyoffersReceivePage />
+  </View>
+);
 
 class MyoffersPage extends Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: "first", title: "Sent" },
+      { key: "second", title: "Recieved" }
+    ]
+  };
+
+  _renderTabBar = props => {
+    console.log("renderTabBar", props);
+    console.log("renderTab", props.navigationState.index === this.state.index);
+    return (
+      <TabBar
+        {...props}
+        useNativeDriver={true}
+        style={
+          props.navigationState.index === this.state.index
+            ? { backgroundColor: "#fe8c12",  }
+            : { backgroundColor: "#fe8c12", }
+        }
+        indicatorStyle={{ height: 0 }}
+        labelStyle={{ color: "black", textTransform: "capitalize" }}
+      />
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <HeaderComponent title={ 'My Offers' } navigation={ this.props.navigation }/>
-        <ScrollView>
-          <View>
-            <Grid style={styles.gridBorder}>
-              <Col size={20} style={styles.offer}>
-                <View>
-                  <Image
-                    style={styles.offerImage}
-                    source={require("../images/1.jpg")}
-                  />
-                </View>
-              </Col>
-              <Col size={75} style={styles.offer}>
-                <View>
-            
-                    <Text style={styles.offerTittle}>Cleaning</Text>
-                    <Text>House Cleaning</Text>
-                    <TouchableOpacity style={styles.waitingButton}>
-                        <Text style={styles.fullWidthButtonText}>Waiting for response</Text>
-                    </TouchableOpacity> 
-                  </View>
-      
-              </Col>
-            </Grid>
-
-                  <Grid style={styles.gridBorder}>
-              <Col size={20} style={styles.offer}>
-                <View>
-                  <Image
-                    style={styles.offerImage}
-                    source={require("../images/1.jpg")}
-                  />
-                </View>
-              </Col>
-              <Col size={75} style={styles.offer}>
-                <View>
-            
-                    <Text style={styles.offerTittle}>Cleaning</Text>
-                    <Text>House Cleaning</Text>
-                    <TouchableOpacity style={styles.acceptedButton}>
-                        <Text style={styles.accepted}>Accepted</Text>
-                    </TouchableOpacity> 
-                  </View>
-      
-              </Col>
-            </Grid>
-
-
-          </View>
-        </ScrollView>
+        <Container>
+          <HeaderComponent
+            title={"Marketplaces"}
+            navigation={this.props.navigation}
+          />
+          <TabView
+            navigationState={this.state}
+            renderScene={SceneMap({
+              first: FirstRoute,
+              second: SecondRoute
+            })}
+            onIndexChange={index => this.setState({ index })}
+            initialLayout={{ width: Dimensions.get("window").width }}
+            renderTabBar={this._renderTabBar}
+          />
+        </Container>
       </View>
     );
   }
@@ -68,47 +81,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  offer:{
-    margin:10,
+  tabBar: {
+    flexDirection: "row",
+    backgroundColor: "#ed7f09"
   },
-  offerImage: {
-    width: 70,
-    height: 70,
-  },
-  offerTittle:{
-    fontSize:17,
-    color:'#0f0f0f'
-  },
-  waitingButton: {
-    backgroundColor: '#d6d406',
-    width:'45%',
-    height:25,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop:5,
-    marginBottom:5,
-  },
-  fullWidthButtonText: {
-    fontSize:10,
-    color: '#282800'
-  },
-  accepted: {
-    fontSize:10,
-    color: '#282800'
-  },
-  acceptedButton:{
-    backgroundColor: '#35a20f',
-    width:'45%',
-    height:25,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop:5,
-    marginBottom:5,
-  },
-    gridBorder:{
-    borderBottomColor: '#fbe9d4',
-    borderBottomWidth: 1,
+  tabItem: {
+    flex: 1,
+    alignItems: "center",
+    padding: 16
   }
 });

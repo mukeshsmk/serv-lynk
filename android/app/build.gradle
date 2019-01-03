@@ -148,7 +148,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-maps')
     compile project(':react-native-gesture-handler')
     compile project(':react-native-firebase')
     compile project(':react-native-vector-icons')
@@ -178,3 +177,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

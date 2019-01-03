@@ -6,6 +6,8 @@ target "servLynk" do
   # use_frameworks!
   # Pods for servLynk
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 end
 
 pod "React", :path => "../node_modules/react-native", :subspecs => [
@@ -25,4 +27,3 @@ pod "Firebase/Database"
 
 pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
 pod "BVLinearGradient", :path => "../node_modules/react-native-linear-gradient"
-pod "react-native-maps", :path => "../node_modules/react-native-maps"

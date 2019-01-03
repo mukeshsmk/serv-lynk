@@ -17,7 +17,7 @@ const StackNavigation = createStackNavigator(
     navigationOptions: {
       headerVisible: false
     },
-    initialRouteName: "drawerNavigation"
+    initialRouteName: "Login"
   }
 );
 
