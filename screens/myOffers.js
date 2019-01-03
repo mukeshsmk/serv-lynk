@@ -57,7 +57,7 @@ class MyoffersPage extends Component {
       <View style={styles.container}>
         <Container>
           <HeaderComponent
-            title={"Marketplaces"}
+            title={"My Offers"}
             navigation={this.props.navigation}
           />
           <TabView
