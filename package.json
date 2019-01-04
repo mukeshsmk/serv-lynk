@@ -17,6 +17,7 @@
     "react-native": "0.57.8",
     "react-native-awesome-alerts": "^1.2.0",
     "react-native-credit-card-input": "^0.4.1",
+    "react-native-datepicker": "^1.7.2",
     "react-native-dialog": "^5.5.0",
     "react-native-easy-grid": "^0.2.0",
     "react-native-elements": "^0.19.1",
