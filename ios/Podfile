@@ -8,6 +8,7 @@ target "servLynk" do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+
 end
 
 pod "React", :path => "../node_modules/react-native", :subspecs => [

@@ -3,6 +3,7 @@ package com.servlynk;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -60,13 +61,4 @@ public class MainApplication extends Application implements ReactApplication {
 
   }
    // Add the following method to your main activity class
-   @Override
-   protected ReactActivityDelegate createReactActivityDelegate() {
-     return new ReactActivityDelegate(this, getMainComponentName()) {
-       @Override
-       protected ReactRootView createRootView() {
-         return new RNGestureHandlerEnabledRootView(MainActivity.this);
-       }
-     };
-   }
 }
