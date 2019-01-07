@@ -1,37 +1,37 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  KeyboardAvoidingView,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
-import { Container, Body } from "native-base";
+import { View,StyleSheet } from "react-native";
+import { Container } from "native-base";
 import { Dimensions } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
+import OfferedListingPage  from "./offeredlisting";
 import HeaderComponent from "../components/Header";
 import MarketPlaceTab from "./marketplacetab";
 
-const FirstRoute = () => (
-  <View style={styles.container}>
-    <MarketPlaceTab />
-  </View>
-);
-const SecondRoute = () => (
-  <View style={styles.container}>
-    <MarketPlaceTab />
-  </View>
-);
+
+// const FirstRoute = () => (
+//   <View style={styles.container}>
+//     <MarketPlaceTab />
+//   </View>
+// );
+// const SecondRoute = () => (
+//   <View style={styles.container}>
+//     <MarketPlaceTab />
+//   </View>
+// );
 
 class Marketplaces extends Component {
-  state = {
+  constructor(props){
+  super(props);
+  this.state = {
     index: 0,
     routes: [
       { key: "first", title: "Offered" },
       { key: "second", title: "Request" }
     ]
   };
+}
 
   _renderTabBar = props => {
     console.log("renderTabBar", props);
@@ -62,19 +62,40 @@ class Marketplaces extends Component {
           <TabView
             navigationState={this.state}
             renderScene={SceneMap({
-              first: FirstRoute,
-              second: SecondRoute
+              first: () => ( 
+                <View style={styles.container}>
+                  <MarketPlaceTab navigation={this.props.navigation}/>
+                </View>
+              ),
+              second: () => ( 
+                <View style={styles.container}>
+                  <MarketPlaceTab navigation={this.props.navigation}/>
+                </View>
+              )
             })}
             onIndexChange={index => this.setState({ index })}
             initialLayout={{ width: Dimensions.get("window").width }}
-            renderTabBar={this._renderTabBar}
+            renderTabBar={this._renderTabBar}  
           />
         </Container>
       </View>
     );
   }
 }
-export default Marketplaces;
+
+//marketplaces stack
+const MarketplacesNavigation = createStackNavigator(
+  {
+    Marketplaces: { screen: Marketplaces },
+    OfferedListingPage: { screen: OfferedListingPage },
+  },{
+    animationEnabled: 'True',
+    initialRouteName: 'Marketplaces',
+    headerMode:"none"
+  }
+);
+
+export default createAppContainer(MarketplacesNavigation);
 
 const styles = StyleSheet.create({
   container: {

@@ -13,16 +13,27 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 
 
 class MarketPlaceRequested extends Component {
+  constructor(props) {
+    super(props);
+      console.log(this.props.navigation)
+    };
+  
+  details = (title) => {
+    
+    this.props.navigation.navigate('OfferedListingPage',{
+      title: title
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
         <ScrollView>
           <View>
-            <Grid style={styles.gridBorder}>
+            <Grid style={styles.gridBorder} >
               <Col>
                 
                   <View style={styles.sevices}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => this.details('Cleaning2')}>
                     <Image
                       style={styles.seviceImage}
                       source={require("../images/1.jpg")}
