@@ -7,10 +7,10 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Button,
 } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import HeaderComponent from "../components/Header";
+import { Button } from 'react-native-elements';
 
 class OpenjobsPage extends Component {
   render() {
@@ -20,7 +20,7 @@ class OpenjobsPage extends Component {
         <ScrollView>
           <View>
           <Grid>
-            <Col size={20}>
+            <Col size={35}>
               <View style={styles.jobs}>
                 <Image
                   style={styles.jobImage}
@@ -28,11 +28,11 @@ class OpenjobsPage extends Component {
                 />
               </View>
             </Col>
-            <Col size={75}>
-              <View style={styles.jobs}>
+            <Col size={65}>
+              <View style={styles.jobsDesc}>
                   <View>
                     <Text style={styles.jobsTittle}>Cleaning</Text>
-                    <Text>House Cleaning</Text>
+                    <Text style={styles.jobsubTittle}>House Cleaning</Text>
                   </View>
                  
               </View>
@@ -51,7 +51,16 @@ class OpenjobsPage extends Component {
                <Text style={styles.amount}>Payment Due: $75</Text>
                <TouchableOpacity 
                 style ={styles.payButton}>
-                <Button color='#45474a' title="Pay"/> 
+                <Button
+                  title="Pay"
+                  buttonStyle={{
+                    marginTop: 5,
+                    marginBottom: 5,
+                    backgroundColor: '#45474a',
+                    width:'100%',
+                    height:30
+                  }}
+                />
               </TouchableOpacity> 
               </View>
             </Col>
@@ -72,34 +81,35 @@ const styles = StyleSheet.create({
   jobs:{
     margin:10,
   },
+  jobsDesc:{
+    marginTop:10,
+    marginBottom:10,
+  },
   jobs1:{
     borderBottomColor: '#fbe9d4',
     borderBottomWidth: 1,
-    marginLeft:10,
-    marginRight:10,
   },
   jobImage: {
-    width: 70,
-    height: 50,
+    width: '95%',
+    height: 70,
   },
   jobsTittle:{
-    fontSize:18,
+    fontSize:20,
+    color:"#0e0e0e",
+  },
+  jobsubTittle:{
+    fontSize:16,
+    color:"#232323",
   },
   amount:{
-    fontSize:14,
+    fontSize:16,
     color:'#333333',
+    paddingLeft:15,
   },
   payment:{
     borderLeftColor: '#acadae',
     borderLeftWidth: 1,
-    paddingLeft:20,
+    paddingLeft:0,
     marginBottom: 5,
   },
-  payButton:{
-    color: 'red',
-    marginTop: 5,
-    marginBottom: 5,
-    backgroundColor: '#45474a',
-    width:'75%'
-  }
 });
