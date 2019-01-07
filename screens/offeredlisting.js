@@ -74,16 +74,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
               <Image style={styles.seviceImage} source={require('../images/3.jpg')} />
             </Col>
           </Grid>
-          <View style={styles.jobDetails}>
-            <Text style={styles.jobContent}>I have been very good cleaning stuff</Text>
-            <Text style={styles.jobContent}>I ahve been cleaning over 10+ years</Text>
-            <Text style={styles.jobContent}>I ahve  very good attention to detail andwon't leave any stone unterned</Text>
-          </View>
-          <View style={styles.jobDetails}>
-            <Text style={styles.jobContent}>I have been very good cleaning stuff</Text>
-            <Text style={styles.jobContent}>I ahve been cleaning over 10+ years</Text>
-            <Text style={styles.jobContent}>I ahve  very good attention to detail andwon't leave any stone unterned</Text>
-          </View>
+         
           <View style={styles.mainviewStyle}>
             <View style={styles.footer}>
               <TouchableOpacity style={styles.bottomButtons1}>
@@ -183,6 +174,7 @@ const styles = StyleSheet.create({
     mainviewStyle: {
       flex: 1,
       flexDirection: 'column',
+      marginTop:20
     },
     footer: {
       flex: 0.1,
@@ -216,8 +208,6 @@ const styles = StyleSheet.create({
     },
     alertTitle:{
       margin:5,
-      borderBottomColor: 'black',
-      borderBottomWidth: 1,
       fontSize:16
     },
     alertMessage:{
