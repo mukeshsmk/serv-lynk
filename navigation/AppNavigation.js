@@ -16,7 +16,7 @@ import {
 import firebase from "react-native-firebase";
 import { Card, Left, Body, Right, Container, Header } from "native-base";
 
-import Marketplaces from "../screens/marketPlaces";
+import MarketplacesNavigation from "../screens/marketPlaces";
 import Provideservices from "../screens/provideServices";
 import Mygigs from "../screens/myGigs";
 import Requestservices from "../screens/requestServices";
@@ -25,6 +25,7 @@ import Chat from "../screens/chat";
 import Openjobs from "../screens/openJobs";
 import Myoffers from "../screens/myOffers";
 import LinearGradient from "react-native-linear-gradient";
+
 
 const CustomDrawerContentComponent = props => (
   <View style={{ flex: 1 }}>
@@ -86,7 +87,7 @@ const CustomDrawerContentComponent = props => (
 const DrawerNavigation = createDrawerNavigator(
   {
     Marketplaces: {
-      screen: Marketplaces
+      screen: MarketplacesNavigation
     },
     "Provide Services": {
       screen: Provideservices

@@ -2,29 +2,36 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 import {
-  Container,
   Header,
   Title,
   Left,
   Right,
   Button,
-  Body,
-  Content,
-  Card,
-  CardItem
+  Body
 } from "native-base";
 
 class HeaderComponent extends Component {
+  
   render() {
+    if (this.props.back) {
+      button = <Button
+      transparent
+      onPress={() => this.props.navigation.pop()}
+    >
+      <Icon name="ios-arrow-back" type='ionicon' iconStyle={styles.backIcon} />
+    </Button>;
+    } else {
+      button = <Button
+      transparent
+      onPress={() => this.props.navigation.openDrawer()}
+    >
+      <Icon name="sort" iconStyle={styles.menuIcon} />
+    </Button>;
+    }
     return (
       <Header style={styles.drawerHeader}>
-        <Left style={{ flexShrink: 1 }}>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.openDrawer()}
-          >
-            <Icon name="sort" iconStyle={styles.menuIcon} />
-          </Button>
+        <Left style={{ flexShrink: 1 }} >
+          {button}
         </Left>
         <Body
           style={{
@@ -57,6 +64,11 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginRight: 5,
     transform: [{ rotateY: "180deg" }]
+  },
+  backIcon:{
+    color: "#fff",
+    fontSize: 26,
+    marginRight: 5,
   },
   title: {
     fontSize: 14,
